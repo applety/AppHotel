@@ -9,6 +9,9 @@
         <!-- versionCode is optional and Android only -->
 
         <preference name="phonegap-version" value="cli-6.5.0" />
+        <preference name="OpenAllWhitelistURLsInWebView" value="true" />
+        <access origin="*.google.com"/>
+        <access origin="*.googleapis.com"/>
 
         <name>AppHotel</name>
 

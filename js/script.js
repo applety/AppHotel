@@ -6,10 +6,31 @@ var fn={
 		$("#btnReservar").tap(fn.hacerReserva);
 		$("#btnHistorial").tap(fn.historial);
 		$("#btnGaleria").tap(fn.galeria);
+
+		$('#ubicacion').on('pageshow', function(){
+		    fn.cargarMapa();
+		});
 	},
 
 	deviceready:function(){
 		document.addEventListener("deviceready",fn.init,false);
+	},
+
+	cargarMapa: function(){
+		var ubicacion = {
+			lat: 19.054807,
+			lng: -98.225586 
+		};
+
+		var mapa = new google.maps.Map(document.getElementById("mapa"), {
+			zoom: 15,
+			center: ubicacion
+		});
+
+		var marcador = new google.maps.Marker({
+			position: ubicacion,
+			map: mapa
+		});
 	},
 
 	galeria: function(){
