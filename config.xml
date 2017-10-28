@@ -10,10 +10,6 @@
 
         <preference name="phonegap-version" value="cli-6.5.0" />
 
-        <access origin="*" />
-        <allow-intent href="*" />
-        <allow-navigation href="*" />
-
         <name>AppHotel</name>
 
         <description>
@@ -27,4 +23,7 @@
         <icon src="img/icon.png" />
         <splash src="img/splash.png" />
 
+        <access origin="*" />
+        <allow-intent href="*" />
+        <allow-navigation href="*" />
     </widget>
