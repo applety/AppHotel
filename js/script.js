@@ -13,6 +13,7 @@ var fn={
 	},
 
 	galeria: function(){
+console.log("GALERIA");		
 		var arregloFotos = ["1", "2", "3", "4", "5", "6", "7", "8"];
 		var tabla        = "";
 		var cajasFotos   = "";
@@ -34,6 +35,7 @@ var fn={
 		tabla += cajasFotos;
 	
 		$("#caja_galeria").html(tabla);
+		$("#galeria").trigger("create");
 		window.location.href = "#galeria";
 	},
 
@@ -198,7 +200,7 @@ console.log(lista);
 };
 
 //COMPILAR PARA CELULAR
-fn.deviceready();
+//fn.deviceready();
 
 //PRUEBAS EN NAVEGADOR
-//fn.init();
+fn.init();
