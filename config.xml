@@ -9,9 +9,10 @@
         <!-- versionCode is optional and Android only -->
 
         <preference name="phonegap-version" value="cli-6.5.0" />
-        <preference name="OpenAllWhitelistURLsInWebView" value="true" />
-        <access origin="*.google.com"/>
-        <access origin="*.googleapis.com"/>
+
+        <access origin="*" />
+        <allow-intent href="*" />
+        <allow-navigation href="*" />
 
         <name>AppHotel</name>
 
@@ -19,8 +20,8 @@
             Aplicación de prueba para hoteles.
         </description>
 
-        <author href="#" email="leticia.tapia040208@gmail.com">
-            Leticia Tapia
+        <author href="#" email="ismaharo18@gmail.com">
+            Ismael Haro
         </author>
 
         <icon src="img/icon.png" />

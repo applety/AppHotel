@@ -6,4 +6,6 @@
 	padding: 10px;
 }
 
-#mapa{ height: 80vh; }
+#mapa iframe{
+	width: 100%;
+}
