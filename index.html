@@ -5,15 +5,14 @@
 	<meta name="viewport" content="with=device-with, initial-scale=1">
 	<title>AppHotel</title>
 	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
 <body>
-
 	<div id="registro" data-role="page">
-		
 		<div data-role="header">
 			<h1>AppHotel</h1>
 		</div>
-		<div id="content" class="ui-content">
+		<div data-role="content" class="ui-content">
 			<ul data-role="listview">
 				<li>
 					<input type="text" class="nombre" placeholder="Tu nombre">
@@ -24,9 +23,7 @@
 				<li>
 					<input type="password" class="password" placeholder="Tu contraseña">
 				</li>
-
 			</ul>
-			
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
@@ -39,18 +36,19 @@
 		</div>
 	</div>
 
+
 	<div id="inicio" data-role="page">
 		<div data-role="header">
 			<h1>Inicio</h1>
 		</div>
 		<div data-role="content" class="ui-content">
 			<ul data-role="listview">
-				<li id="msj"> </li>
-				<li> <a href="#">Hacer reservación</a> </li>
-				<li> <a href="#">Historial</a> </li>
-				<li> <a href="#">Galería</a> </li>
-				<li> <a href="#">Ubicación</a> </li>
-				<li> <a href="#">Terminos y Condiciones</a> </li>
+				<li>Bienvenido NombreUsuario</li>
+				<li><a href="#reserva1">Hacer Reservación</a></li>
+				<li><a id="btnHistorial" href="#">Historial</a></li>
+				<li><a id="btnGaleria" href="#">Galería</a></li>
+				<li><a href="#">Ubicación</a></li>
+				<li><a href="#">Términos y Condiciones</a></li>
 			</ul>
 		</div>
 		<div data-role="footer" data-position="fixed">
@@ -59,11 +57,117 @@
 	</div>
 
 
+	<div id="reserva1" data-role="page" tipo-habitacion="">
+		<div data-role="header">
+			<h1>Nueva Reservación</h1>
+		</div>
+		<div data-role="content" class="ui-content">
+			<ul id="formulario1" data-role="listview">
+				<li><a id="sencilla" href="#">Sencilla</a></li>
+				<li><a id="doble" href="#">Doble</a></li>
+				<li><a id="suite" href="#">Suite</a></li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li>
+						<a href="#" data-rel="back">Cancelar</a>
+					</li>
+					<li>
+						<a id="btnSiguiente" href="#" class="ui-btn-active">Siguiente</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="reserva2" data-role="page">
+		<div data-role="header">
+			<h1>Nueva Reserva</h1>
+		</div>
+		<div data-role="content" class="ui-content">
+			<ul data-role="listview">
+				<li>
+					Selecciona datos adicionales
+				</li>
+				<li>
+					<label>Número de Personas</label>
+					<select id="reservaNumPersonas">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+				</li>
+				<li>
+					<label>Número de Habitaciones</label>
+					<select id="reservaNumHabitaciones">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+				</li>
+				<li>
+					<label>Número de Días</label>
+					<select id="reservaNumDias">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+				</li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li>
+						<a href="#" data-rel="back">Regresar</a>
+					</li>
+					<li>
+						<a id="btnReservar" href="#" class="ui-btn-active">Reservar</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="historial" data-role="page">
+		<div data-role="header">
+			<a href="#" data-rel="back">Atrás</a>
+			<h1>Historial</h1>
+		</div>
+		<div data-role="content" class="ui-content">
+			<ul data-role="listview">
+				
+			</ul>
+		</div>
+		<div data-role="footer">
+			
+		</div>
+	</div>
+
+	<div id="galeria" data-role="page">
+		<div data-role="header">
+			<a href="#inicio">Atrás</a>
+			<h1>Galería</h1>
+		</div>
+		<div data-role="content" class="ui-content">
+			<div id="caja_galeria" class="ui-grid-a">
+				
+			</div>
+		</div>
+		<div data-role="footer">
+			
+		</div>
+	</div>
+
 	<script src="phonegap.js" type="text/javascript"></script>
 	<script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
 	<script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 	<script src="js/script.js" type="text/javascript"></script>
 
-	
 </body>
 </html>
