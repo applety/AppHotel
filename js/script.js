@@ -46,7 +46,7 @@ var fn={
 		tabla += cajasFotos;
 	
 		$("#caja_galeria").html(tabla);
-		$("#galeria").trigger("create");
+		//$("#galeria").trigger("create");
 		window.location.href = "#galeria";
 	},
 
