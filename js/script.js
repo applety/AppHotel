@@ -22,6 +22,7 @@ var fn={
 		}
 		$("#ubicacion").trigger("create");
 		window.location.href = "#ubicacion";
+		$("#ubicacion").trigger("create");
 	},
 	
 	galeria: function(){	

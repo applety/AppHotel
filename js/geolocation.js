@@ -6,7 +6,7 @@ var geo = {
 		};
 
 		var map = new google.maps.Map(document.getElementById('mapa'), {
-        	zoom: 10,
+        	zoom: 15,
         	center: coordenadas
         });
 
