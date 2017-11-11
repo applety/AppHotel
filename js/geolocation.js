@@ -17,7 +17,7 @@ var geo = {
 	},
 	error: function(error){
 		alert("ERROR: "+ error.message);
-	}
+	},
 	obtenerPosicion: function(){
 		navigator.geolocation.getCurrentPosition(geo.exito, geo.error);
 	}
