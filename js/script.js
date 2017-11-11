@@ -14,15 +14,10 @@ var fn={
 	},
 
 	ubicacion: function(){
-		alert("ObteniendoUbicacion");
-		try{
-			geo.obtenerPosicion();
-		}catch(error){
-			alert("error de app "+error);
-		}
+		geo.obtenerPosicion();
+		
 		$("#ubicacion").trigger("create");
 		window.location.href = "#ubicacion";
-		$("#ubicacion").trigger("create");
 	},
 	
 	galeria: function(){	
