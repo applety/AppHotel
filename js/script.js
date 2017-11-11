@@ -15,7 +15,11 @@ var fn={
 
 	ubicacion: function(){
 		alert("ObteniendoUbicacion");
-		geo.obtenerPosicion();
+		try{
+			geo.obtenerPosicion();
+		}catch(error){
+			alert("error de app "+error);
+		}
 		window.location.href = "#ubicacion";
 	},
 	
