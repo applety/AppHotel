@@ -20,6 +20,7 @@ var fn={
 		}catch(error){
 			alert("error de app "+error);
 		}
+		$("#ubicacion").trigger("create");
 		window.location.href = "#ubicacion";
 	},
 	
