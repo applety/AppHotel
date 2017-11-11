@@ -14,6 +14,7 @@ var fn={
 	},
 
 	ubicacion: function(){
+		alert("ObteniendoUbicacion");
 		geo.obtenerPosicion();
 		window.location.href = "#ubicacion";
 	},
