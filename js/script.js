@@ -14,6 +14,7 @@ var fn={
 	},
 
 	ubicacion: function(){
+console.log("hola");		
 		geo.obtenerPosicion();
 		
 		$("#ubicacion").trigger("create");
@@ -207,7 +208,7 @@ console.log(lista);
 };
 
 //COMPILAR PARA CELULAR
-fn.deviceready();
+//fn.deviceready();
 
 //PRUEBAS EN NAVEGADOR
-//fn.init();
+fn.init();
