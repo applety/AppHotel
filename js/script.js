@@ -15,6 +15,7 @@ var fn={
 
 	ubicacion: function(){
 		geo.obtenerPosicion();
+		window.location.href = "#ubicacion";
 	},
 	
 	galeria: function(){	
