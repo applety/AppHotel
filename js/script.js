@@ -6,10 +6,15 @@ var fn={
 		$("#btnReservar").tap(fn.hacerReserva);
 		$("#btnHistorial").tap(fn.historial);
 		$("#btnGaleria").tap(fn.galeria);
+		$("#btnUbicacion").tap(fn.ubicacion);
 	},
 
 	deviceready:function(){
 		document.addEventListener("deviceready",fn.init,false);
+	},
+
+	ubicacion: function(){
+		geo.obtenerPosicion();
 	},
 	
 	galeria: function(){	
