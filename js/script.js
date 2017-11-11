@@ -12,8 +12,7 @@ var fn={
 		document.addEventListener("deviceready",fn.init,false);
 	},
 	
-	galeria: function(){
-console.log("GALERIA");		
+	galeria: function(){	
 		var arregloFotos = ["1", "2", "3", "4", "5", "6", "7", "8"];
 		var tabla        = "";
 		var cajasFotos   = "";
