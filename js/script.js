@@ -7,10 +7,37 @@ var fn={
 		$("#btnHistorial").tap(fn.historial);
 		$("#btnGaleria").tap(fn.galeria);
 		$("#btnUbicacion").tap(fn.ubicacion);
+		$("#btnIniciarSesion").tap(fn.iniciarSesion);
+		$("#btnSalir").tap(fn.salir);
 	},
 
 	deviceready:function(){
 		document.addEventListener("deviceready",fn.init,false);
+	},
+
+	salir: function(){
+		firebase.auth().signOut().then(function() {
+		 	window.location.href = "#registro";
+
+		}).catch(function(error) {
+			alert("No se pudo salir de la sesión");
+		});
+	},
+
+	iniciarSesion: function(){
+		var email    = $("#iniciosesion .email").val();
+		var password = $("#iniciosesion .password").val();
+
+		firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
+			window.location.href = "#inicio";
+
+		}).catch(function(error) {
+		 	console.log(error);
+		 	alert("Email o contraseña incorrecta");
+		  	var errorCode    = error.code;
+		  	var errorMessage = error.message;
+		});
+
 	},
 
 	ubicacion: function(){
@@ -170,6 +197,7 @@ console.log(lista);
 			if(password == ""){
 				throw new Error("La contraseña esta vacia");
 			}
+
 			fn.nuevoUsuario(nombre, email, password);
 
 			$("#registro .nombre").val("");
@@ -189,27 +217,13 @@ console.log(lista);
 		usuario.email    = email;
 		usuario.password = password;
 
-		var usuarioCadena = JSON.stringify(usuario);
-		//console.log(usuarioCadena);
-
-		//GURDAR EN LOCALSTORAGE
-		window.localStorage.setItem("usuario", usuarioCadena);
-
-		alert("Usuario:" +usuario.nombre+" guardado");
-
-		
-		var obtenerNombre = window.localStorage.getItem("usuario");
-		var NombreR  = JSON.parse(obtenerNombre);
-		console.log(NombreR.nombre);
-		$("#msj").html ("Bienvenido " + nombre);
-
 		/*
 		 * GUARDAR EN BASE DE DATOS
 		 */
 		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-console.log(error);			
-		  var errorCode = error.code;
-		  var errorMessage = error.message;
+			console.log(error);			
+			var errorCode    = error.code;
+		  	var errorMessage = error.message;
 		});
 	}
 };
