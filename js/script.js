@@ -203,7 +203,14 @@ console.log(lista);
 		console.log(NombreR.nombre);
 		$("#msj").html ("Bienvenido " + nombre);
 
-
+		/*
+		 * GUARDAR EN BASE DE DATOS
+		 */
+		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+console.log(error);			
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		});
 	}
 };
 
