@@ -75,6 +75,21 @@ console.log("hola");
 	},
 
 	historial: function(){
+		$("#historial ul").html("");
+		var lista = "";
+		var user_id = firebase.auth().currentUser.uid;
+		var ruta_res = firebase.database().ref('reservaciones/'+user_id);
+		ruta_res.on('child_added',function(reservacion){
+			console.log(reservacion.val());
+
+			//$("#historial ul").append('<li>Reservación: '+reservacion.val().tipoHabitacion+' - ' +reservacion.val().fecha+'</li>');
+		lista += '<li>Reservación: '+reservacion.val().tipoHabitacion+' - ' +reservacion.val().fecha+'</li>';
+				$("#historial ul").html(lista);
+		});
+				
+		window.location.href = "#historial";
+
+		/*
 		var arregloReservaciones = window.localStorage.getItem("reservaciones");
 		var arregloObjetos       = JSON.parse(arregloReservaciones);		
 		var lista                = "";
@@ -82,11 +97,9 @@ console.log("hola");
 		arregloObjetos.forEach(function(reservacion){
 console.log(lista);			
 			lista += '<li>Reservación: '+reservacion.tipoHabitacion+' - ' +reservacion.fecha+'</li>';
-		});
+		});*/
 
-		$("#historial ul").html(lista);
-
-		window.location.href = "#historial";
+		
 	},
 
 	hacerReserva: function(){		
@@ -101,6 +114,12 @@ console.log(lista);
 		reservacion.fecha              = new Date();
 		reservacion.fecha              = reservacion.fecha.getDate() + "/" + (parseInt(reservacion.fecha.getMonth()) + 1) + "/" + reservacion.fecha.getFullYear();
 
+		var user_id =firebase.auth().currentUser.uid;
+		var ruta_res = firebase.database().ref().child('reservaciones/'+user_id);
+		ruta_res.push(reservacion);
+
+
+		//firebase.database().ref('Reservaciones/').push(reservacion);
 		
 		/*
 		 * OBTENER DATOS DE LOCALSTORAGE
@@ -114,6 +133,7 @@ console.log(lista);
 
 			var arregloCadena = JSON.stringify(arregloReservaciones);
 			window.localStorage.setItem("reservaciones", arregloCadena);
+
 		}else{
 			/*
 			 * Ya hay reservaciones en el almacenamiento
@@ -199,12 +219,6 @@ console.log(lista);
 			}
 
 			fn.nuevoUsuario(nombre, email, password);
-
-			$("#registro .nombre").val("");
-			$("#registro .email").val("");
-			$("#registro .password").val("");
-
-			window.location.href = "#inicio";
 		}
 		catch(error){
 			alert(error);
@@ -220,8 +234,17 @@ console.log(lista);
 		/*
 		 * GUARDAR EN BASE DE DATOS
 		 */
-		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+		firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
+			$("#registro .nombre").val("");
+			$("#registro .email").val("");
+			$("#registro .password").val("");
+
+			window.location.href = "#inicio";
+
+		}).catch(function(error) {
 			console.log(error);			
+			
+			alert("Error al registrar");
 			var errorCode    = error.code;
 		  	var errorMessage = error.message;
 		});
@@ -229,7 +252,7 @@ console.log(lista);
 };
 
 //COMPILAR PARA CELULAR
-//fn.deviceready();
+fn.deviceready();
 
 //PRUEBAS EN NAVEGADOR
-fn.init();
+//fn.init();
